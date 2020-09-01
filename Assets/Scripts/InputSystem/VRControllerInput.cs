@@ -7,7 +7,7 @@ public class VRControllerInput : MonoBehaviour
 {
     //这个组件在XR Rig里的手柄上
     private XRController controller;
-    private bool triggerButton, menuButton, GripButton, padButton;
+    private bool triggerButton = false, menuButton = false, GripButton = false, padButton = false;
     public float triggerPressValue;
     public InputDeviceCharacteristics controlNode;
     public Vector2 position;
@@ -53,7 +53,6 @@ public class VRControllerInput : MonoBehaviour
         {
             if (_menu) // 按住按键
             {
-                print(_menu);
                 MenuOnHold.Invoke();
 
                 if (!menuButton) // 按下按键
