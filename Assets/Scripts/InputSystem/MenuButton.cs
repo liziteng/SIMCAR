@@ -12,5 +12,6 @@ public class MenuButton : MonoBehaviour
         menuObj.SetActive(b);
         Ray_R.SetActive(b);
         Ray_L.SetActive(b);
+        print(b);
     }
 }
