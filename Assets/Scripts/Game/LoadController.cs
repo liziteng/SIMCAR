@@ -2,6 +2,7 @@
 using UnityEngine.XR;
 public class LoadController : MonoBehaviour
 {
+    //这个脚本在GameManager上
     private void Start()
     {
         CharacterMovementRegisteration();

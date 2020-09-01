@@ -14,6 +14,7 @@ public class VRControllerInput : MonoBehaviour
 
     [Header("MenuButton")]
     public UnityEvent MenuOnHold;
+    public UnityEvent MenuPressedOnce;
     public UnityEvent MenuOnRelease;
 
     [Header("TriggerButton")]
@@ -53,7 +54,12 @@ public class VRControllerInput : MonoBehaviour
             if (_menu) // 按住按键
             {
                 MenuOnHold.Invoke();
-                menuButton = true;
+
+                if (!menuButton) // 按下按键
+                {
+                    menuButton = true;
+                    MenuPressedOnce.Invoke();
+                }
             }
             else // 抬起按键
             {
