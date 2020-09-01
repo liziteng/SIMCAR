@@ -53,6 +53,7 @@ public class VRControllerInput : MonoBehaviour
         {
             if (_menu) // 按住按键
             {
+                print(_menu);
                 MenuOnHold.Invoke();
 
                 if (!menuButton) // 按下按键

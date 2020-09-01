@@ -326,6 +326,36 @@ Transform:
   m_Father: {fileID: 1393792037}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &111441981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 111441982}
+  m_Layer: 0
+  m_Name: L_Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111441982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111441981}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_Children: []
+  m_Father: {fileID: 1152875638}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &321716661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,9 +1606,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1152875638}
   - component: {fileID: 1152875642}
-  - component: {fileID: 1152875641}
   - component: {fileID: 1152875640}
+  - component: {fileID: 1152875641}
   - component: {fileID: 1152875639}
+  - component: {fileID: 1152875643}
   m_Layer: 0
   m_Name: LeftHandRay
   m_TagString: Untagged
@@ -1593,10 +1624,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152875637}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 7.4830008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 111441982}
   m_Father: {fileID: 100768652}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1744,7 +1776,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.005
+    widthMultiplier: 0.02
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1898,11 +1930,71 @@ MonoBehaviour:
   m_ActivateUsage: 2
   m_UIPressUsage: 2
   m_AxisToPressThreshold: 0.1
-  m_ModelPrefab: {fileID: 0}
-  m_ModelTransform: {fileID: 0}
+  m_ModelPrefab: {fileID: 5755349967199143447, guid: f8a995da2eb296c47aae2d2e6ba0369e,
+    type: 3}
+  m_ModelTransform: {fileID: 111441982}
   m_AnimateModel: 0
   m_ModelSelectTransition: 
   m_ModelDeSelectTransition: 
+--- !u!114 &1152875643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152875637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2f21e1a4b3ab3469d2d4f32f19bbf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerPressValue: 0
+  controlNode: 0
+  position: {x: 0, y: 0}
+  MenuOnHold:
+    m_PersistentCalls:
+      m_Calls: []
+  MenuPressedOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  MenuOnRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1195723892}
+        m_MethodName: SetControllerActivite
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  TriggerOnHold:
+    m_PersistentCalls:
+      m_Calls: []
+  TriggerPressedOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  TriggerReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  padPressedOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  padOnHold:
+    m_PersistentCalls:
+      m_Calls: []
+  gripOnHold:
+    m_PersistentCalls:
+      m_Calls: []
+  gripPressedOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  gripReleased:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1169003629
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,6 +2355,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247912512}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1286562972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1286562973}
+  m_Layer: 0
+  m_Name: R_Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1286562973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286562972}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_Children: []
+  m_Father: {fileID: 2066854138}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1293467081
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,6 +2756,9 @@ MonoBehaviour:
       m_Calls: []
   MenuPressedOnce:
     m_PersistentCalls:
+      m_Calls: []
+  MenuOnRelease:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1195723892}
         m_MethodName: SetControllerActivite
@@ -2646,9 +2771,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  MenuOnRelease:
-    m_PersistentCalls:
-      m_Calls: []
   TriggerOnHold:
     m_PersistentCalls:
       m_Calls: []
@@ -3173,6 +3295,9 @@ MonoBehaviour:
       m_Calls: []
   MenuPressedOnce:
     m_PersistentCalls:
+      m_Calls: []
+  MenuOnRelease:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1195723892}
         m_MethodName: SetControllerActivite
@@ -3185,9 +3310,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  MenuOnRelease:
-    m_PersistentCalls:
-      m_Calls: []
   TriggerOnHold:
     m_PersistentCalls:
       m_Calls: []
@@ -3284,9 +3406,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2066854138}
   - component: {fileID: 2066854142}
-  - component: {fileID: 2066854141}
   - component: {fileID: 2066854140}
+  - component: {fileID: 2066854141}
   - component: {fileID: 2066854139}
+  - component: {fileID: 2066854143}
   m_Layer: 0
   m_Name: RightHandRay
   m_TagString: Untagged
@@ -3301,10 +3424,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066854137}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 7.4830008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1286562973}
   m_Father: {fileID: 100768652}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3606,11 +3730,71 @@ MonoBehaviour:
   m_ActivateUsage: 2
   m_UIPressUsage: 2
   m_AxisToPressThreshold: 0.1
-  m_ModelPrefab: {fileID: 0}
-  m_ModelTransform: {fileID: 0}
+  m_ModelPrefab: {fileID: 5755349967199143447, guid: f8a995da2eb296c47aae2d2e6ba0369e,
+    type: 3}
+  m_ModelTransform: {fileID: 1286562973}
   m_AnimateModel: 0
   m_ModelSelectTransition: 
   m_ModelDeSelectTransition: 
+--- !u!114 &2066854143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066854137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2f21e1a4b3ab3469d2d4f32f19bbf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerPressValue: 0
+  controlNode: 0
+  position: {x: 0, y: 0}
+  MenuOnHold:
+    m_PersistentCalls:
+      m_Calls: []
+  MenuPressedOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  MenuOnRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1195723892}
+        m_MethodName: SetControllerActivite
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  TriggerOnHold:
+    m_PersistentCalls:
+      m_Calls: []
+  TriggerPressedOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  TriggerReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  padPressedOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  padOnHold:
+    m_PersistentCalls:
+      m_Calls: []
+  gripOnHold:
+    m_PersistentCalls:
+      m_Calls: []
+  gripPressedOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  gripReleased:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &5427999776940200
 Transform:
   m_ObjectHideFlags: 0
