@@ -9,7 +9,7 @@ public class SteeringWheel : MonoBehaviour
     private Transform leftHandOrigineParent;
     private bool leftHandOnWheel = false;
     public Transform[] snappPoints;
-    private int numberOfHandsOnWheel = 0;
+    public int numberOfHandsOnWheel = 0;
     public GameObject carBody;
     private Rigidbody carRigidbody;
     public float currentWheelRotation = 0;
@@ -18,7 +18,6 @@ public class SteeringWheel : MonoBehaviour
 
     private void Start()
     {
-
     }
     private void Update()
     {
