@@ -10,23 +10,22 @@ public class SteeringWheel : MonoBehaviour
     private bool leftHandOnWheel = false;
     public Transform[] snappPoints;
     public int numberOfHandsOnWheel = 0;
-    public GameObject carBody;
-    private Rigidbody carRigidbody;
+    // public GameObject carBody;
+    // private Rigidbody carRigidbody;
     public float currentWheelRotation = 0;
-    private float turnDampening = 250;
+    // private float turnDampening = 250;
     public Transform directionalObject;
 
     private void Start()
     {
     }
+
     private void Update()
     {
-        TurnVechicle();
-        ReleasehandsFromWheel();
-        ConvertHandRotationToSteeringWheelRotation();
 
-        currentWheelRotation = -transform.rotation.eulerAngles.z;
     }
+
+    #region Discard Functions
 
     void TurnVechicle()
     {
@@ -83,6 +82,9 @@ public class SteeringWheel : MonoBehaviour
             transform.parent = directionalObject;
         }
     }
+    #endregion
+
+    #region Hand Snap
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("PlayerHand"))
@@ -123,4 +125,5 @@ public class SteeringWheel : MonoBehaviour
         handOnWheel = true;
         numberOfHandsOnWheel++;
     }
+    #endregion
 }
