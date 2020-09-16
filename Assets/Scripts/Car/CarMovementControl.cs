@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 public class CarMovementControl : MonoBehaviour
 {
-     //这个脚本在Car Collider物体上
+     //这个脚本在Car Collider物体上，控制汽车轮子的碰撞核
     public float horizontalInput;
     public float forwardInput, breakInput;
     public float steerAngle;

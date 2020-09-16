@@ -2,8 +2,10 @@
 public class LocatorPosition : MonoBehaviour
 {
     //这个脚本在steerWheelLocator上。 最后在steerWheelLocator的interactable Event里的Select Enter和Select Exit要添加上HandOnWheel和HandAway。
-    public GameObject handLocator,steerWheelLocator, steerWheel;
-    public VRControllerInput[] hands;
+    public GameObject handLocator; //这个是抓住方向盘以后手的位置
+    public GameObject steerWheelLocator; //这个是方向盘的定位
+    public GameObject  steerWheel; //这个是方形盘物体
+    private VRControllerInput[] hands;
     public bool handOnWheel;
 
     private void Start()
@@ -13,7 +15,7 @@ public class LocatorPosition : MonoBehaviour
 
     public void HandOnWheel()
     {
-        handLocator.transform.position = hands[0].transform.position;//这个hands.transform之后要改掉, 最后还是创建一圈空白物体，然后位置=最近的空白物体的位置
+        handLocator.transform.position = new Vector3(hands[0].transform.position.x, hands[0].transform.position.y, steerWheelLocator.transform.position.z);
         handOnWheel = true;
     }
 
@@ -29,12 +31,10 @@ public class LocatorPosition : MonoBehaviour
     {
         if (handOnWheel)
         {
-            print("Hand on wheel!!!");
             handLocator.transform.localPosition = new Vector3(hands[0].transform.position.x, hands[0].transform.position.y, handLocator.transform.position.z);
         }
         else
         {
-            print("Hands away");
             handLocator.transform.localPosition = new Vector3(0,-10,0);
         }
     }
