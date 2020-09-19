@@ -8,13 +8,16 @@ public class GameManger : MonoBehaviour
     public VRControllerInput[] vrInputs;
     public CarDrictionInput carSpeed;
     public LoadController controllerLoader;
-    
+
     private void Awake()
     {
         instance = this;
         characterMovement = FindObjectOfType<CharacterMovement>();
         vrInputs = FindObjectsOfType<VRControllerInput>();
-        carSpeed = FindObjectOfType<CarDrictionInput>();
         controllerLoader = FindObjectOfType<LoadController>();
+    }
+    public void CarLoaded()
+    {
+        carSpeed = FindObjectOfType<CarDrictionInput>();
     }
 }
