@@ -2,7 +2,7 @@
 
 public class MenuButton : MonoBehaviour
 {
-    //这个脚本在InputManager上
+    //这个脚本在InputManager上, 会在抓取模式手柄的MenuButton上、MainMenu的Comfirm按钮上使用。
     public GameObject control_L, control_R, Ray_R, Ray_L, menuObj;
 
     public void SetControllerActivite(bool b)
@@ -12,6 +12,5 @@ public class MenuButton : MonoBehaviour
         menuObj.SetActive(b);
         Ray_R.SetActive(b);
         Ray_L.SetActive(b);
-        print(b);
     }
 }

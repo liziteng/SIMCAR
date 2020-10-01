@@ -51,14 +51,15 @@ public class VRControllerInput : MonoBehaviour
     {
         if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool _menu))
         {
+           
             if (_menu) // 按住按键
             {
                 MenuOnHold.Invoke();
 
                 if (!menuButton) // 按下按键
                 {
-                    menuButton = true;
                     MenuPressedOnce.Invoke();
+                    menuButton = true;
                 }
             }
             else // 抬起按键
@@ -149,7 +150,9 @@ public class VRControllerInput : MonoBehaviour
         if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxisTouch, out bool _touched))
         {
             if (_touched) // 按住按键
-            { print("touch pad is " + _touched); }
+            {
+
+            }
             else
             {
 
