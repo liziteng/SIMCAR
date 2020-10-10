@@ -8,6 +8,7 @@ public class GameManger : MonoBehaviour
     public VRControllerInput[] vrInputs;
     public CarDrictionInput carSpeed;
     public LoadController controllerLoader;
+    public bool handOnWheel;
 
     private void Awake()
     {
