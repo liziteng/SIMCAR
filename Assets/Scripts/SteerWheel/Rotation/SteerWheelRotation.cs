@@ -18,8 +18,8 @@ public class SteerWheelRotation : MonoBehaviour
     {
         if (GameManger.instance.handOnWheel)
             GetControllerAngle();
-        else
-            transform.localRotation = steerWheelLocator.transform.localRotation;
+        // else
+        //     transform.localRotation = steerWheelLocator.transform.localRotation;
     }
 
     public void StartingAngle() //这个方法要在刚开始握方向盘时运行一次, 在SteerWheelLocator的Interactable Event的Select Enter里
