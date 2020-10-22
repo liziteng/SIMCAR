@@ -51,7 +51,7 @@ public class VRControllerInput : MonoBehaviour
     {
         if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool _menu))
         {
-           
+
             if (_menu) // 按住按键
             {
                 MenuOnHold.Invoke();
@@ -122,17 +122,12 @@ public class VRControllerInput : MonoBehaviour
     }
     private void PadFunction()
     {
-
         if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out bool _padClicked))
         {
             if (_padClicked) // 按住按键
             {
                 padOnHold.Invoke();
-                if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 _position))
-                {
-                    position = _position;
-                    if (CharacterMovement != null) CharacterMovement(position.x, position.y);
-                }
+                if (CharacterMovement != null) CharacterMovement(position.x, position.y);
 
                 if (!padButton) // 按下按键
                 {
@@ -151,7 +146,11 @@ public class VRControllerInput : MonoBehaviour
         {
             if (_touched) // 按住按键
             {
-
+                if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 _position))
+                {
+                    position = _position;
+                    print(position);
+                }
             }
             else
             {
