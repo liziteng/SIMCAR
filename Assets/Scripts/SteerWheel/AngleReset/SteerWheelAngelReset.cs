@@ -4,10 +4,11 @@ public class SteerWheelAngelReset : MonoBehaviour
 {
     //这个脚本控制方向盘回转，放在“方向盘”物体上
     public Quaternion orginalAngle;
-    public int turns = 0;
+    // private int turns = 0;
     public GameObject right, left, still;
     // public Transform On, Off;
     public int driection;
+    public float angle;
     private int speed = 700;
     private void Start()
     {
@@ -17,6 +18,7 @@ public class SteerWheelAngelReset : MonoBehaviour
     private void Update()
     {
         SetCheckerPosition();
+        print(angle);
     }
 
     private void SetCheckerPosition()
@@ -42,14 +44,20 @@ public class SteerWheelAngelReset : MonoBehaviour
         }
         if (!GameManger.instance.handOnWheel)
         {
-            RotationReset();
-            if (turns == 0) transform.localRotation = Quaternion.RotateTowards(transform.localRotation, orginalAngle, speed * Time.deltaTime);
+            // RotationReset();
+            // if (Mathf.Abs(angle) < 2) transform.localRotation = Quaternion.RotateTowards(transform.localRotation, orginalAngle, speed * Time.deltaTime);
         }
     }
 
     private void RotationReset()
     {
-        if (turns > 0) transform.Rotate(new Vector3(0, 0, -speed * Time.deltaTime), Space.Self);
-        else if (turns < 0) transform.Rotate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
+        if (angle > 0)
+        {
+            transform.Rotate(new Vector3(0, 0, -speed * Time.deltaTime), Space.Self);
+        }
+        else if (angle < 0)
+        {
+            transform.Rotate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
+        }
     }
 }

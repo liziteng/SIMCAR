@@ -2,14 +2,16 @@
 
 public class SecendryWheel : MonoBehaviour
 {
-    private SteerWheelAngelReset SR;
+    private SteerWheelAngelReset swR;
+    private SteerWheelRotation SW;
     private GameObject steerWheel;
     public Quaternion currentAngle;
 
     private void Start()
     {
-        SR = FindObjectOfType<SteerWheelAngelReset>();
-        steerWheel = SR.gameObject;
+        swR = FindObjectOfType<SteerWheelAngelReset>();
+        SW = FindObjectOfType<SteerWheelRotation>();
+        steerWheel = swR.gameObject;
     }
     private void Update()
     {
@@ -26,17 +28,19 @@ public class SecendryWheel : MonoBehaviour
 
     private void AngleComparation()
     {
-        if (transform.localEulerAngles.z < steerWheel.transform.localEulerAngles.z)
+        Vector3 direction = Vector3.Cross(transform.localEulerAngles, steerWheel.transform.localEulerAngles);
+
+        if (direction.y < 0)
         {
-            SR.driection = 1;
+            swR.driection = 1;
         }
-        else if (transform.localEulerAngles.z > steerWheel.transform.localEulerAngles.z)
+        else if (direction.y > 0)
         {
-            SR.driection = -1;
+            swR.driection = -1;
         }
         else
         {
-            SR.driection = 0;
+            swR.driection = 0;
         }
     }
 }

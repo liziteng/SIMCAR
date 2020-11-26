@@ -149,7 +149,7 @@ public class VRControllerInput : MonoBehaviour
                 if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 _position))
                 {
                     position = _position;
-                    print(position);
+                    // print(position);
                 }
             }
             else

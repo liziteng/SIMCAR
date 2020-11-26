@@ -14,10 +14,10 @@ public class Checker_Still : MonoBehaviour
     {
         if (other.tag == "SteerWheel")
         {
-            if (wheel.turns > 0)
-                wheel.turns--;
-            else if (wheel.turns < 0)
-                wheel.turns++;
+            // if (wheel.turns > 0)
+            //     wheel.turns--;
+            // else if (wheel.turns < 0)
+            //     wheel.turns++;
         }
     }
 }

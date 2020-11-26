@@ -6,7 +6,6 @@ public class SteerWheerLocatorPosition : MonoBehaviour
     public GameObject steerWheelLocator; //这个是方向盘的定位, 用于抓取
     public GameObject steerWheel; //这个是方形盘物体
     public bool handOnWheel;
-
     private VRControllerInput[] hands;
     private Quaternion baseAngle;
     

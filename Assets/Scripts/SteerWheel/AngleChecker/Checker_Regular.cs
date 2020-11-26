@@ -12,8 +12,8 @@ public class Checker_Regular : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "SteerWheel")
-        wheel.turns += number;
+        // if(other.tag == "SteerWheel")
+        // wheel.turns += number;
     }
 }
 
