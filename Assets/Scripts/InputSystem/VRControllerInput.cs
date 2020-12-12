@@ -124,6 +124,22 @@ public class VRControllerInput : MonoBehaviour
     {
         if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out bool _padClicked))
         {
+            if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxisTouch, out bool _touched))
+            {
+                if (_touched) // 按住按键
+                {
+                    if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 _position))
+                    {
+                        position = _position;
+                        // print(position);
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            
             if (_padClicked) // 按住按键
             {
                 padOnHold.Invoke();
@@ -142,20 +158,6 @@ public class VRControllerInput : MonoBehaviour
             }
         }
 
-        if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxisTouch, out bool _touched))
-        {
-            if (_touched) // 按住按键
-            {
-                if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 _position))
-                {
-                    position = _position;
-                    // print(position);
-                }
-            }
-            else
-            {
 
-            }
-        }
     }
 }

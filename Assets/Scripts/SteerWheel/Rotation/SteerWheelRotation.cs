@@ -1,24 +1,35 @@
 ﻿using UnityEngine;
 public class SteerWheelRotation : MonoBehaviour
 {
-    //这个脚本放在SteerWheel上，控制方向盘角度. 
+    //这个脚本放在“方向盘物体”上，控制方向盘角度. 🚗
 
     public GameObject handLocator;
     public float outPutAngle;
 
     private GameObject steerWheelLocator;
     private float baseAngle;
+    private SecendryWheel secendryWheel;
+    private GameObject shadowWheel;
+
+    public enum Dir
+    {
+        right,
+        left,
+        still
+    }
+    public Dir _direction = Dir.still;
 
     private void Start()
     {
         steerWheelLocator = FindObjectOfType<SteerWheerLocatorPosition>().gameObject;
+        secendryWheel = FindObjectOfType<SecendryWheel>();
+        shadowWheel = secendryWheel.gameObject;
     }
     private void Update()
     {
-        if (GameManger.instance.handOnWheel)
-            GetControllerAngle();
-        // else
-        //     transform.localRotation = steerWheelLocator.transform.localRotation;
+        if (GameManger.instance.handOnWheel) GetControllerAngle();
+
+        _direction = DirectionDetector();
     }
 
     public void StartingAngle() //这个方法要在刚开始握方向盘时运行一次, 在SteerWheelLocator的Interactable Event的Select Enter里
@@ -40,6 +51,25 @@ public class SteerWheelRotation : MonoBehaviour
         var quatAngle = Quaternion.AngleAxis(floatAngle, Vector3.forward); //算出方向盘应该使用的四元数角度
         var v3angle = quatAngle.eulerAngles; //将四元数角度转换为三项数角度
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, v3angle.z); //保持x轴角度的前提下,只选转z轴
+    }
+
+    private Dir DirectionDetector()
+    {
+        var direction = Vector3.Cross(shadowWheel.transform.localEulerAngles, transform.localEulerAngles);
+        print(direction);
+
+        if (direction.y > 0)
+        {
+            return Dir.left;
+        }
+        else if (direction.y < 0)
+        {
+            return Dir.right;
+        }
+        else
+        {
+            return Dir.still;
+        }
     }
 
     // private void GetControllerAngle() //让方向盘跟随手旋转
