@@ -10,6 +10,7 @@ public class SteerWheelRotation : MonoBehaviour
     private float baseAngle;
     private SecendryWheel secendryWheel;
     private GameObject shadowWheel;
+    private Vector3 startAngel;
 
     public enum Dir
     {
@@ -24,6 +25,7 @@ public class SteerWheelRotation : MonoBehaviour
         steerWheelLocator = FindObjectOfType<SteerWheerLocatorPosition>().gameObject;
         secendryWheel = FindObjectOfType<SecendryWheel>();
         shadowWheel = secendryWheel.gameObject;
+        startAngel = transform.up;
     }
     private void Update()
     {
@@ -55,9 +57,7 @@ public class SteerWheelRotation : MonoBehaviour
 
     private Dir DirectionDetector()
     {
-        var direction = Vector3.Cross(shadowWheel.transform.localEulerAngles, transform.localEulerAngles);
-        print(direction);
-
+        var direction = Vector3.Cross(transform.up, shadowWheel.transform.up);
         if (direction.y > 0)
         {
             return Dir.left;

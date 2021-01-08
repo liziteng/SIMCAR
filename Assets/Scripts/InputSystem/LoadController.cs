@@ -7,7 +7,6 @@ public class LoadController : MonoBehaviour
     {
         CharacterMovementRegisteration();
         GameManger.instance.CarLoaded(); //加载汽车或者上车以后要运行GM里的CarLoaded()命令。要不然后面的CarRegisteration会报错。
-        CarMovementRegisteration();
     }
     public void CarRegisteration() //上车以后执行这个
     {
