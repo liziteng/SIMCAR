@@ -20,7 +20,7 @@ public class SteerWheerLocatorPosition : MonoBehaviour
     {
         handLocator.transform.position = new Vector3(hands[0].transform.position.x, hands[0].transform.position.y, steerWheelLocator.transform.position.z);
         handOnWheel = true;
-        GameManger.instance.handOnWheel = true;
+        GameManager.instance.handOnWheel = true;
     }
 
     public void HandAway()  //在steerWheelLocator的interactable Event里的Select Exit里
@@ -29,7 +29,7 @@ public class SteerWheerLocatorPosition : MonoBehaviour
         steerWheelLocator.transform.localPosition = steerWheel.transform.position;
         steerWheelLocator.transform.localRotation = baseAngle;
         handOnWheel = false;
-        GameManger.instance.handOnWheel = false;
+        GameManager.instance.handOnWheel = false;
     }
 
     private void Update()

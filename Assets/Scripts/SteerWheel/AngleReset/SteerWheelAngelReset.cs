@@ -4,7 +4,7 @@ public class SteerWheelAngelReset : MonoBehaviour
 {
     //这个脚本控制方向盘回转，放在“方向盘”物体上
     public float steerTurnedAngele;
-    private int speed = 300;
+    private int speed = 200;
     private SteerWheelRotation steer;
     private Vector3 startAngel;//待定用不用
     private Quaternion startQua;//待定用不用
@@ -19,16 +19,20 @@ public class SteerWheelAngelReset : MonoBehaviour
     {
         RotationReset();
     }
-
     private void RotationReset()
     {
-        if (steer._direction == SteerWheelRotation.Dir.right)
-        {
-            steerTurnedAngele += 0.1f;
-        }
-        else if (steer._direction == SteerWheelRotation.Dir.left)
-        {
-            steerTurnedAngele -= 0.1f;
-        }
+        if(!GameManager.instance.handOnWheel)
+        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, startQua, speed * Time.deltaTime);
     }
+    // private void RotationReset()
+    // {
+    //     if (steer._direction == SteerWheelRotation.Dir.right)
+    //     {
+    //         steerTurnedAngele += 0.1f;
+    //     }
+    //     else if (steer._direction == SteerWheelRotation.Dir.left)
+    //     {
+    //         steerTurnedAngele -= 0.1f;
+    //     }
+    // }
 }
