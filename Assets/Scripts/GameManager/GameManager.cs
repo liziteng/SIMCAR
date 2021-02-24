@@ -8,8 +8,13 @@ public class GameManager : MonoBehaviour
     public VRControllerInput[] vrInputs;
     public CarDrictionInput carSpeed;
     public LoadController controllerLoader;
+    public CharacterController characterCollision;
     public bool handOnWheel;
+<<<<<<< HEAD:Assets/Scripts/GameManager/GameManager.cs
     public CarAngle turningForce;
+=======
+    public AngleDetector steerWheelAngle;
+>>>>>>> qwe:Assets/Scripts/GameManager/GameManger.cs
 
     private void Awake()
     {
@@ -17,7 +22,12 @@ public class GameManager : MonoBehaviour
         characterMovement = FindObjectOfType<CharacterMovement>();
         vrInputs = FindObjectsOfType<VRControllerInput>();
         controllerLoader = FindObjectOfType<LoadController>();
+<<<<<<< HEAD:Assets/Scripts/GameManager/GameManager.cs
         turningForce = FindObjectOfType<CarAngle>();
+=======
+        characterCollision = FindObjectOfType<CharacterController>();
+        steerWheelAngle = FindObjectOfType<AngleDetector>();
+>>>>>>> qwe:Assets/Scripts/GameManager/GameManger.cs
     }
     public void CarLoaded()
     {
