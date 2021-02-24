@@ -16,7 +16,7 @@ public class CarDrictionInput : MonoBehaviour
 
     private void GetDriction() //这个是左右的方向，里面方法之后改
     {
-        driction.horizontalInput = steerWheel.outPutAngle / angle;
+        driction.horizontalInput = steerWheel.outPutAngle/angle;
     }
     public void GoForward(float value) //控制车往前往后走
     {

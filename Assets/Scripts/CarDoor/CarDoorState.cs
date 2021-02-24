@@ -47,14 +47,14 @@ public class CarDoorState : DoorRemainClose
         whereGetOn.position = character.transform.position;
         character.transform.position = seatPos.position;
         character.transform.parent = car.transform;
-        GameManger.instance.controllerLoader.CarRegisteration();
+        GameManager.instance.controllerLoader.CarRegisteration();
         charState = CharacterState.OnCar;
     }
     private void GetOff()
     {
         character.transform.parent = null;
         character.transform.position = whereGetOn.position;
-        GameManger.instance.controllerLoader.CharacterRegisteration();
+        GameManager.instance.controllerLoader.CharacterRegisteration();
         charState = CharacterState.OffCar;
     }
 }

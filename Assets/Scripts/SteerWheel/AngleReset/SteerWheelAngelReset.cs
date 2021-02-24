@@ -3,16 +3,16 @@
 public class SteerWheelAngelReset : MonoBehaviour
 {
     //这个脚本控制方向盘回转，放在“方向盘”物体上
-    public float steerTurnedAngele;
+    // public float steerTurnedAngele;
     private int speed = 300;
     private SteerWheelRotation steer;
-    private Vector3 startAngel;//待定用不用
+    // private Vector3 startAngel;//待定用不用
     private Quaternion startQua;//待定用不用
 
     private void Start()
     {
         steer = GetComponent<SteerWheelRotation>();
-        startAngel = transform.localEulerAngles;
+        // startAngel = transform.localEulerAngles;
         startQua = transform.rotation;
     }
     private void Update()
@@ -22,13 +22,17 @@ public class SteerWheelAngelReset : MonoBehaviour
 
     private void RotationReset()
     {
-        if (steer._direction == SteerWheelRotation.Dir.right)
+        if (!GameManager.instance.handOnWheel)
         {
-            steerTurnedAngele += 0.1f;
+            transform.rotation = Quaternion.RotateTowards(transform.localRotation, startQua, speed * Time.deltaTime);
         }
-        else if (steer._direction == SteerWheelRotation.Dir.left)
-        {
-            steerTurnedAngele -= 0.1f;
-        }
+        // if (steer._direction == SteerWheelRotation.Dir.right)
+        // {
+        //     steerTurnedAngele += 0.1f;
+        // }
+        // else if (steer._direction == SteerWheelRotation.Dir.left)
+        // {
+        //     steerTurnedAngele -= 0.1f;
+        // }
     }
 }

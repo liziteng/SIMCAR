@@ -8,30 +8,30 @@ public class SteerWheelRotation : MonoBehaviour
 
     private GameObject steerWheelLocator;
     private float baseAngle;
-    private SecendryWheel secendryWheel;
-    private GameObject shadowWheel;
+    // private SecendryWheel secendryWheel;
+    // private GameObject shadowWheel;
     private Vector3 startAngel;
 
-    public enum Dir
-    {
-        right,
-        left,
-        still
-    }
-    public Dir _direction = Dir.still;
+    // public enum Dir
+    // {
+    //     right,
+    //     left,
+    //     still
+    // }
+    // public Dir _direction = Dir.still;
 
     private void Start()
     {
         steerWheelLocator = FindObjectOfType<SteerWheerLocatorPosition>().gameObject;
-        secendryWheel = FindObjectOfType<SecendryWheel>();
-        shadowWheel = secendryWheel.gameObject;
+        // secendryWheel = FindObjectOfType<SecendryWheel>();
+        // shadowWheel = secendryWheel.gameObject;
         startAngel = transform.up;
     }
     private void Update()
     {
-        if (GameManger.instance.handOnWheel) GetControllerAngle();
+        if (GameManager.instance.handOnWheel) GetControllerAngle();
 
-        _direction = DirectionDetector();
+        // _direction = DirectionDetector();
     }
 
     public void StartingAngle() //这个方法要在刚开始握方向盘时运行一次, 在SteerWheelLocator的Interactable Event的Select Enter里
@@ -55,22 +55,22 @@ public class SteerWheelRotation : MonoBehaviour
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, v3angle.z); //保持x轴角度的前提下,只选转z轴
     }
 
-    private Dir DirectionDetector()
-    {
-        var direction = Vector3.Cross(transform.up, shadowWheel.transform.up);
-        if (direction.y > 0)
-        {
-            return Dir.left;
-        }
-        else if (direction.y < 0)
-        {
-            return Dir.right;
-        }
-        else
-        {
-            return Dir.still;
-        }
-    }
+    // private Dir DirectionDetector()
+    // {
+    //     var direction = Vector3.Cross(transform.up, shadowWheel.transform.up);
+    //     if (direction.y > 0)
+    //     {
+    //         return Dir.left;
+    //     }
+    //     else if (direction.y < 0)
+    //     {
+    //         return Dir.right;
+    //     }
+    //     else
+    //     {
+    //         return Dir.still;
+    //     }
+    // }
 
     // private void GetControllerAngle() //让方向盘跟随手旋转
     // {

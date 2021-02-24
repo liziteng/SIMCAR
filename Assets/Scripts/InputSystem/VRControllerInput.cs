@@ -82,6 +82,7 @@ public class VRControllerInput : MonoBehaviour
                 {
                     TriggerOnHold.Invoke();
                     triggerPressValue = value;
+                    print(controller.controllerNode);
                     if (CarMovement != null) CarMovement(value);
                 }
                 if (!triggerButton) // 按下按键

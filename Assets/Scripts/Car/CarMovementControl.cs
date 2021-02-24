@@ -20,7 +20,7 @@ public class CarMovementControl : MonoBehaviour
     }
     private void SteerMethod()
     {
-        steerAngle = maxSteerAngle * horizontalInput;
+        steerAngle = maxSteerAngle * 1;
         fl_wheelColider.steerAngle = steerAngle;
         fr_wheelColider.steerAngle = steerAngle;
     }
