@@ -19,11 +19,7 @@ public class CarMovementControl : MonoBehaviour
     }
     private void SteerMethod()
     {
-<<<<<<< HEAD
         steerAngle = maxSteerAngle * GameManager.instance.turningForce._turningForce;
-=======
-        steerAngle = maxSteerAngle * 1;
->>>>>>> qwe
         fl_wheelColider.steerAngle = steerAngle;
         fr_wheelColider.steerAngle = steerAngle;
     }

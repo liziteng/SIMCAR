@@ -2,7 +2,7 @@
 using UnityEngine.XR;
 public class LoadController : MonoBehaviour
 {
-    //这个脚本在InputManager上
+    //这个脚本在GameManager上
     private void Start()
     {
         CharacterMovementRegisteration();
@@ -26,15 +26,10 @@ public class LoadController : MonoBehaviour
         {
             vrcontroller.CharacterMovement += GameManager.instance.characterMovement.MovementFunction;
         }
-        GameManager.instance.characterCollision.enabled = true;
     }
 
     private void CharacterMovementDeregisteration()
     {
-<<<<<<< HEAD
-=======
-        GameManager.instance.characterCollision.enabled = false;
->>>>>>> qwe
         foreach (VRControllerInput vrcontroller in GameManager.instance.vrInputs)
         {
             vrcontroller.CharacterMovement -= GameManager.instance.characterMovement.MovementFunction;
