@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public LoadController controllerLoader;
     public bool handOnWheel;
     public CarAngle turningForce;
+    public GameObject hand;
 
     private void Awake()
     {

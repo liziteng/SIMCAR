@@ -8,7 +8,6 @@ public class SteerWheelRotation : MonoBehaviour
 
     private GameObject steerWheelLocator;
     private float baseAngle;
-    private SecendryWheel secendryWheel;
     private Vector3 startAngel;
 
     // public enum Dir
@@ -22,7 +21,6 @@ public class SteerWheelRotation : MonoBehaviour
     private void Start()
     {
         steerWheelLocator = FindObjectOfType<SteerWheerLocatorPosition>().gameObject;
-        secendryWheel = FindObjectOfType<SecendryWheel>();
         startAngel = transform.up;
     }
     private void Update()
